@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://hhvyqff7uuch"]
+
+[ext_resource type="PackedScene" uid="uid://cpit2pu6vsb7" path="res://walls.tscn" id="1_m45mf"]
+[ext_resource type="Script" path="res://paddle2.gd" id="2_8t5mt"]
+[ext_resource type="Script" path="res://paddle1.gd" id="2_h0wv4"]
+[ext_resource type="Script" path="res://Ball.gd" id="4_0b1iw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4oaws"]
+size = Vector2(38, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x74gn"]
+size = Vector2(12, 40)
+
+[node name="Game" type="Node2D"]
+
+[node name="Ball" type="CharacterBody2D" parent="."]
+position = Vector2(552, 356)
+scale = Vector2(0.43, 0.43)
+script = ExtResource("4_0b1iw")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_4oaws")
+
+[node name="ColorRect" type="ColorRect" parent="Ball"]
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="paddle2" type="CharacterBody2D" parent="."]
+position = Vector2(1114, 285)
+scale = Vector2(1, 5.305)
+script = ExtResource("2_8t5mt")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paddle2"]
+position = Vector2(6, 20)
+shape = SubResource("RectangleShape2D_x74gn")
+
+[node name="ColorRect" type="ColorRect" parent="paddle2"]
+offset_right = 12.0
+offset_bottom = 40.0
+
+[node name="walls" parent="." instance=ExtResource("1_m45mf")]
+position = Vector2(41, 18)
+scale = Vector2(4.715, 0.2)
+
+[node name="paddle1" type="CharacterBody2D" parent="."]
+position = Vector2(77, 328)
+scale = Vector2(1, 5.305)
+script = ExtResource("2_h0wv4")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paddle1"]
+shape = SubResource("RectangleShape2D_x74gn")
+
+[node name="ColorRect" type="ColorRect" parent="paddle1"]
+offset_left = -6.0
+offset_top = -19.9811
+offset_right = 6.0
+offset_bottom = 20.0189

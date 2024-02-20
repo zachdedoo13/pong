@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpit2pu6vsb7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jd5uk"]
+size = Vector2(40, 39)
+
+[node name="walls" type="Node2D"]
+position = Vector2(12.65, 20)
+scale = Vector2(4.995, 0.2)
+
+[node name="Bottom" type="StaticBody2D" parent="."]
+position = Vector2(12.65, 2980)
+scale = Vector2(4.995, 1)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
+position = Vector2(20, 19.5)
+shape = SubResource("RectangleShape2D_jd5uk")
+
+[node name="ColorRect" type="ColorRect" parent="Bottom"]
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Top" type="StaticBody2D" parent="."]
+position = Vector2(12.65, 0)
+scale = Vector2(4.995, 1)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
+position = Vector2(20, 19.5)
+shape = SubResource("RectangleShape2D_jd5uk")
+
+[node name="ColorRect" type="ColorRect" parent="Top"]
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
