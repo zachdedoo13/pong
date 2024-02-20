@@ -15,7 +15,7 @@ func _process(delta):
 	pre_ys.append(velocity.y)
 	if len(pre_ys) == 3:
 		pre_ys.remove_at(0)
-	print(str(pre_ys))
+
 	if velocity.x == 0:
 		SPEED *= -1
 		position.x += SPEED / 1000
